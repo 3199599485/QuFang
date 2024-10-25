@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>古词作品模块</title>
+    <style>
+        body {
+            font-family: 'SimSun', 'Songti SC', serif;
+            background-color: #eae0b2; /* 背景颜色 */
+            color: #4b3c28;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #f0e6d2; /* 内容框的背景颜色调整为淡黄色 */
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            font-family: 'KaiTi', 'SimSun', 'Songti SC', serif; /* 设置为楷体字 */
+        }
+
+        .shi {
+            margin: 20px 0;
+            border-bottom: 1px dashed #d8b579;
+            padding-bottom: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .number {
+            margin-right: 15px;
+            font-size: 1.2em;
+            color: #8B0000;
+        }
+
+        .ci-content {
+            background-color: #fff; /* 古词内容的背景颜色为白色 */
+            padding: 15px;
+            border: 1px solid #8B0000; /* 边框颜色 */
+            border-radius: 5px;
+            margin-bottom: 10px;
+            font-family: 'KaiTi', 'SimSun', 'Songti SC', serif; /* 设置词内容为楷体字 */
+            font-size: 1.2em;
+        }
+
+        .back-button, .detail-button {
+            margin-top: 10px; /* 缩小了按钮和文本之间的间距 */
+            padding: 6px 10px; /* 缩小按钮的内边距 */
+            border: 1px solid #8B0000;
+            background-color: #fff;
+            color: #8B0000;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 0.8em; /* 调整按钮字体大小 */
+        }
+
+            .back-button:hover, .detail-button:hover {
+                background-color: #8B0000;
+                color: #fff;
+            }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+    <script>
+        function openDetail(ciTitle, ciContent, thoughts) {
+            const detailWindow = window.open("", "DetailWindow", "width=600,height=400");
+            detailWindow.document.write(`
+                    <html lang="zh">
+                    <head>
+                        <meta charset="UTF-8">
+                        <title>${ciTitle}</title>
+                        <style>
+                            body {
+                                font-family: 'SimSun', 'Songti SC', serif;
+                                background-color: #f0e6d2; /* 窗口背景颜色 */
+                                color: #4b3c28;
+                                margin: 0;
+                                padding: 20px;
+                            }
+                            .content {
+                                display: flex;
+                                flex-direction: column;
+                            }
+                            .ci {
+                                margin-bottom: 20px;
+                                border-bottom: 1px solid #8B0000;
+                                padding-bottom: 10px;
+                                font-family: 'KaiTi', 'SimSun', 'Songti SC', serif; /* 设置词内容为楷体字 */
+                                font-size: 1.2em;
+                            }
+                            .thought {
+                                border: 1px solid #8B0000;
+                                padding: 10px;
+                                background-color: #eae0b2; /* 暗黄色背景 */
+                            }
+                            .back-button {
+                                margin-top: 20px;
+                                padding: 6px 10px; /* 缩小按钮的内边距 */
+                                border: 1px solid #8B0000;
+                                background-color: #fff;
+                                color: #8B0000;
+                                border-radius: 5px;
+                                cursor: pointer;
+                                transition: background-color 0.3s;
+                                font-size: 0.8em; /* 调整按钮字体大小 */
+                            }
+                            .back-button:hover {
+                                background-color: #8B0000;
+                                color: #fff;
+                            }
+                        </style>
+                    </head>
+                    <body>
+                        <div class="content">
+                            <div class="ci">
+                                <h2>${ciTitle}</h2>
+                                <p>${ciContent}</p >
+                            </div>
+                            <div class="thought">
+                                <h3>杂记</h3>
+                                <p>${thoughts || '暂无杂记'}</p >
+                            </div>
+                            <button class="back-button" onclick="window.close()">返回</button>
+                        </div>
+                    </body>
+                    </html>
+                `);
+            detailWindow.document.close();
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>古词<br>字句浅显的拼凑</h1>
+
+        <div class="shi">
+            <div class="number">一、</div>
+            <div>
+                <div class="ci-content">
+                    <h2>摸鱼儿•暮春时节遇故人</h2>
+                    <p>
+                        正恍惚，又晤君幼。暮春何处射柳？<br>
+                        恰五月风光绮秀，无意折花自游。<br>
+                        何所求？尽舍去，越明暗里访深幽。<br>
+                        心纵形囚。览古今物事，千千世界，何故徒生忧？<br>
+                        不觉间，黄粱残梦已休。江水几曾西流？<br>
+                        三载一日何意久，灵台方寸悲秋。<br>
+                        不必留。且将走，浅睡蝶反岂须愁？<br>
+                        结衣束发。寄蜉蝣天地，区区小人，哪堪惹人羞。<br><br>
+                        壬寅年春·湛江
+                    </p>
+                </div>
+                <button class="detail-button" onclick="openDetail('摸鱼儿•暮春时节遇故人', '正恍惚，又晤君幼。暮春何处射柳？<br>恰五月风光绮秀，无意折花自游。<br>何所求？尽舍去，越明暗里访深幽。<br>心纵形囚。览古今物事，千千世界，何故徒生忧？<br>不觉间，黄粱残梦已休。江水几曾西流？<br>三载一日何意久，灵台方寸悲秋。<br>不必留。且将走，浅睡蝶反岂须愁？<br>结衣束发。寄蜉蝣天地，区区小人，哪堪惹人羞。', '2022年记录，2023年完成，2024年格律修改正确。')">查看详情</button>
+            </div>
+        </div>
+
+        <div class="shi">
+            <div class="number">二、</div>
+            <div>
+                <div class="ci-content">
+                    <h2>钗头凤•落花</h2>
+                    <p>
+                        和风化，金雨落，芳华岂为流水祸？<br>
+                        春华开，秋实败，如此三载，君未归来。<br>
+                        坏！坏！坏！<br>
+                        千字文，万言书，终画土。<br>
+                        登高台，望北海，形距秦淮，心未曾殆。<br>
+                        怪！怪！怪！<br><br>
+                        壬寅年秋·深圳
+                    </p>
+                </div>
+                <button class="detail-button" onclick="openDetail('钗头凤•落花', '和风化，金雨落，芳华岂为流水祸？<br>春华开，秋实败，如此三载，君未归来。<br>坏！坏！坏！<br>千字文，万言书，终画土。<br>登高台，望北海，形距秦淮，心未曾殆。<br>怪！怪！怪！', '暂无。')">查看详情</button>
+            </div>
+        </div>
+
+        <div class="shi">
+            <div class="number">三、</div>
+            <div>
+                <div class="ci-content">
+                    <h2>相见欢•力争鳌头</h2>
+                    <p>
+                        折戟已有日久，事俱休。<br>
+                        且看昨日失意今抖擞。<br>
+                        昆山玉，桂林枝，龙虎斗。<br>
+                        明朝独登考场占鳌头！<br><br>
+                        癸卯年夏·深圳
+                    </p>
+                </div>
+                <button class="detail-button" onclick="openDetail('相见欢•力争鳌头', '折戟已有日久，事俱休。<br>且看昨日失意今抖擞。<br>昆山玉，桂林枝，龙虎斗。<br>明朝独登考场占鳌头！', '暂无。')">查看详情</button>
+            </div>
+        </div>
+
+        <div class="shi">
+            <div class="number">四、</div>
+            <div>
+                <div class="ci-content">
+                    <h2>相见欢•自反</h2>
+                    <p>
+                        新败难承旧顾，意踟蹰。<br>
+                        竹发千尺放眼皆险阻。<br>
+                        秉性伏，耻羞辱，续前路。<br>
+                        鹏程万里归来尽坦途。<br><br>
+                        癸卯年夏·深圳
+                    </p>
+                </div>
+                <button class="detail-button" onclick="openDetail('相见欢•自反', '新败难承旧顾，意踟蹰。<br>竹发千尺放眼皆险阻。<br>秉性伏，耻羞辱，续前路。<br>鹏程万里归来尽坦途。', '暂无。')">查看详情</button>
+            </div>
+        </div>
+
+        <div class="shi">
+            <div class="number">五、</div>
+            <div>
+                <div class="ci-content">
+                    <h2>破阵子•西行大理</h2>
+                        <p>
+                            纵身长歌万里，信马自在游西。<br>
+                            朝起丹冥暮少阴，白骥东风正相宜。<br>
+                            乘兴人得意。<br>
+                            轻颓不更节气，奋起难追前夕。<br>
+                            忙借春光百事兴，莫待来日秋风起。<br>
+                            万事皆可期。<br><br>
+                            癸卯年夏·百色
+                        </p>
+                </div>
+                <button class="detail-button" onclick="openDetail('破阵子•西行大理', '纵身长歌万里，信马自在游西。<br>朝起丹冥暮少阴，白骥东风正相宜。<br>乘兴人得意。<br>轻颓不更节气，奋起难追前夕。<br>忙借春光百事兴，莫待来日秋风起。<br>万事皆可期。', '暂无。')">查看详情</button>
+            </div>
+        </div>
+
+        <div class="shi">
+            <div class="number">六、</div>
+            <div>
+                <div class="ci-content">
+                    <h2>破阵子•秋思（其一）</h2>
+                    <p>
+                        遥寄岭南何患，委身江北常忧。<br>
+                        南冠未正身畔楚，桂落菊残寒意秋。<br>
+                        枫霜染散愁。<br>
+                        素葛疏烟渐远，苍丝暮雨难收。<br>
+                        年华一分春色尽，啼鸟声声更上楼。<br>
+                        梦深故里游。<br><br>
+                        甲辰年秋·深圳
+                    </p>
+                </div>
+                <button class="detail-button" onclick="openDetail('破阵子•秋思（其一）', '遥寄岭南何患，委身江北常忧。<br>南冠未正身畔楚，桂落菊残寒意秋。<br>枫霜染散愁。<br>素葛疏烟渐远，苍丝暮雨难收。<br>年华一分春色尽，啼鸟声声更上楼。<br>梦深故里游。', '暂无。')">查看详情</button>
+            </div>
+        </div>
+
+        <div class="shi">
+            <div class="number">二、</div>
+            <div>
+                <div class="ci-content">
+                    <h2>破阵子•秋思（其二）</h2>
+                    <p>
+                        戍子征夫离久，万千战鼓寒秋。<br>
+                        只甲风尘挥剑舞，沙场霜星泪难收。<br>
+                        登高独倚楼。<br>
+                        青火暗寻孤寂，故园音信全休。<br>
+                        几度梦中归故里，乡月清辉总相留。<br>
+                        孤鸿影长囚。<br><br>
+                        甲辰年秋·岳阳
+                    </p>
+                </div>
+                <button class="detail-button" onclick="openDetail('破阵子•秋思（其二）', '戍子征夫离久，万千战鼓寒秋。<br>只甲风尘挥剑舞，沙场霜星泪难收。<br>登高独倚楼。<br>青火暗寻孤寂，故园音信全休。<br>几度梦中归故里，乡月清辉总相留。<br>孤鸿影长囚。', '暂无。')">查看详情</button>
+            </div>
+        </div>
+
+        <div class="shi">
+            <div class="number">七、</div>
+            <div>
+                <div class="ci-content">
+                    <h2>雨霖铃</h2>
+                    <p>
+                        且将旧事说长情，寄语东风随梦生。<br>
+                        最忆是、红尘梦，月明随人醒。<br><br>
+                        癸卯年秋·深圳
+                    </p>
+                </div>
+                <button class="detail-button" onclick="openDetail('雨霖铃', '且将旧事说长情，寄语东风随梦生。最忆是、红尘梦，月明随人醒。', '暂无。')">查看详情</button>
+            </div>
+        </div>
+
+        <div class="shi">
+            <div class="number">八、</div>
+            <div>
+                <div class="ci-content">
+                    <h2>一剪梅•晚秋</h2>
+                    <p>
+                        南岭春秋向难猜，和熏未竟，珪月且来。<br>
+                        三巡秋败老菊衰。朽蠹从霜，流水低徊。<br>
+                        青鸟几时赴玉台？风卷长亭，寄念蓬莱。<br>
+                        归期未省空留待。岂欲追思？两鬓斑白。<br><br>
+                        甲辰年秋·深圳
+                    </p>
+                </div>
+                <button class="detail-button" onclick="openDetail('一剪梅•晚秋', '南岭春秋向难猜，和熏未竟，珪月且来。<br>三巡秋败老菊衰。朽蠹从霜，流水低徊。<br>青鸟几时赴玉台？风卷长亭，寄念蓬莱。<br>归期未省空留待。岂欲追思？两鬓斑白。', '暂无。')">查看详情</button>
+            </div>
+        </div>
+
+        <button class="back-button" onclick="window.location.href='index.html'">返回主界面</button>
+    </div>
+</body>
+</html>

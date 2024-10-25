@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>古诗作品模块</title>
+    <style>
+        body {
+            font-family: 'SimSun', 'Songti SC', serif;
+            background-color: #eae0b2; /* 背景颜色 */
+            color: #4b3c28;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #f0e6d2; /* 内容框的背景颜色调整为淡黄色 */
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            font-family: 'KaiTi', 'SimSun', 'Songti SC', serif; /* 设置为楷体字 */
+        }
+
+        .shi {
+            margin: 20px 0;
+            border-bottom: 1px dashed #d8b579;
+            padding-bottom: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .number {
+            margin-right: 15px;
+            font-size: 1.2em;
+            color: #8B0000;
+        }
+
+        .poem-content {
+            background-color: #fff; /* 古诗内容的背景颜色为白色 */
+            padding: 15px;
+            border: 1px solid #8B0000; /* 边框颜色 */
+            border-radius: 5px;
+            margin-bottom: 10px;
+            font-family: 'KaiTi', 'SimSun', 'Songti SC', serif; /* 设置诗歌内容为楷体字 */
+            font-size: 1.2em;
+        }
+
+        .back-button, .detail-button {
+            margin-top: 10px; /* 缩小了按钮和文本之间的间距 */
+            padding: 6px 10px; /* 缩小按钮的内边距 */
+            border: 1px solid #8B0000;
+            background-color: #fff;
+            color: #8B0000;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 0.8em; /* 调整按钮字体大小 */
+        }
+
+            .back-button:hover, .detail-button:hover {
+                background-color: #8B0000;
+                color: #fff;
+            }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+    <script>
+        function openDetail(poemTitle, poemContent, thoughts) {
+            const detailWindow = window.open("", "DetailWindow", "width=600,height=400");
+            detailWindow.document.write(`
+                    <html lang="zh">
+                    <head>
+                        <meta charset="UTF-8">
+                        <title>${poemTitle}</title>
+                        <style>
+                            body {
+                                font-family: 'SimSun', 'Songti SC', serif;
+                                background-color: #f0e6d2; /* 窗口背景颜色 */
+                                color: #4b3c28;
+                                margin: 0;
+                                padding: 20px;
+                            }
+                            .content {
+                                display: flex;
+                                flex-direction: column;
+                            }
+                            .poem {
+                                margin-bottom: 20px;
+                                border-bottom: 1px solid #8B0000;
+                                padding-bottom: 10px;
+                                font-family: 'KaiTi', 'SimSun', 'Songti SC', serif; /* 设置诗歌内容为楷体字 */
+                                font-size: 1.2em;
+                            }
+                            .thought {
+                                border: 1px solid #8B0000;
+                                padding: 10px;
+                                background-color: #eae0b2; /* 暗黄色背景 */
+                            }
+                            .back-button {
+                                margin-top: 20px;
+                                padding: 6px 10px; /* 缩小按钮的内边距 */
+                                border: 1px solid #8B0000;
+                                background-color: #fff;
+                                color: #8B0000;
+                                border-radius: 5px;
+                                cursor: pointer;
+                                transition: background-color 0.3s;
+                                font-size: 0.8em; /* 调整按钮字体大小 */
+                            }
+                            .back-button:hover {
+                                background-color: #8B0000;
+                                color: #fff;
+                            }
+                        </style>
+                    </head>
+                    <body>
+                        <div class="content">
+                            <div class="poem">
+                                <h2>${poemTitle}</h2>
+                                <p>${poemContent}</p >
+                            </div>
+                            <div class="thought">
+                                <h3>杂记</h3>
+                                <p>${thoughts || '暂无杂记'}</p >
+                            </div>
+                            <button class="back-button" onclick="window.close()">返回</button>
+                        </div>
+                    </body>
+                    </html>
+                `);
+            detailWindow.document.close();
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>古诗<br>音韵混乱的胡诌</h1>
+
+        <div class="shi">
+            <div class="number">一、</div>
+            <div>
+                <div class="poem-content">
+                    <h2>浮云游意</h2>
+                    <p>
+                        弹指须臾三载恨，光阴更负老残身。<br>
+                        何需穷尽浮游意？山水相逢即故人。<br><br>
+                        癸卯年夏·深圳
+                    </p>
+                </div>
+                <button class="detail-button" onclick="openDetail('浮云游意', '弹指须臾三载恨，光阴更负老残身。<br>何需穷尽浮游意？山水相逢即故人。', '暂无')">查看详情</button>
+            </div>
+        </div>
+
+        <div class="shi">
+            <div class="number">二、</div>
+            <div>
+                <div class="poem-content">
+                    <h2>晓梦歌残（其一）</h2>
+                    <p>
+                        阴阳割晓晨近昏，北风纷纷霜同尘。<br>
+                        楚秋断晚三江雪，白鬓未归蓑衣人。<br><br>
+                        癸卯年夏·深圳
+                    </p>
+                </div>
+                <button class="detail-button" onclick="openDetail('晓梦歌残（其一）', '阴阳割晓晨近昏，北风纷纷霜同尘。<br>楚秋断晚三江雪，白鬓未归蓑衣人。', '第一次想要系统记录的念头产生于完成此篇。')">查看详情</button>
+            </div>
+        </div>
+
+        <div class="shi">
+            <div class="number">三、</div>
+            <div>
+                <div class="poem-content">
+                    <h2>晓梦歌残（其二）</h2>
+                    <p>
+                        楚梦偏留醉，扶风唤子归。<br>
+                        琼浆非甘露，华胥度几回？<br><br>
+                        癸卯年夏·湛江
+                    </p>
+                </div>
+                <button class="detail-button" onclick="openDetail('晓梦歌残（其二）', '楚梦偏留醉，扶风唤子归。<br>琼浆非甘露，华胥度几回？', '暂无。')">查看详情</button>
+            </div>
+        </div>
+
+        <div class="shi">
+            <div class="number">四、</div>
+            <div>
+                <div class="poem-content">
+                    <h2>晓梦歌残(其三)</h2>
+                    <p>
+                        半卷庭风两处秋，南冠未戴类楚囚。<br>
+                        菊残桂落枫飘尽，素葛苍丝啼数收。<br><br>
+                        癸卯年秋·深圳
+                    </p>
+                </div>
+                <button class="detail-button" onclick="openDetail('晓梦歌残(其三)', '半卷庭风两处秋，南冠未戴类楚囚。<br>菊残桂落枫飘尽，素葛苍丝啼数收。', '暂无')">查看详情</button>
+            </div>
+        </div>
+
+        <div class="shi">
+            <div class="number">五、</div>
+            <div>
+                <div class="poem-content">
+                    <h2>无题</h2>
+                    <p>
+                        法门幽远阻循迤，俗世喧嚣岂忍欺。<br>
+                        我自随心不越矩，半沉泥絮半菩提。<br><br>
+                        癸卯年夏·湛江
+                    </p>
+                </div>
+                <button class="detail-button" onclick="openDetail('无题', '法门幽远阻循迤，俗世喧嚣岂忍欺。<br>我自随心不越矩，半沉泥絮半菩提。', '暂无')">查看详情</button>
+            </div>
+        </div>
+
+        <div class="shi">
+            <div class="number">六、</div>
+            <div>
+                <div class="poem-content">
+                    <h2>疍家•天成台</h2>
+                    <p>
+                        日照西湾升晚炊，渔灯阑珊伴浪回。<br>
+                        稚子江头弄潮罢，又争谁家秋鱼肥。<br><br>
+                        癸卯年夏·湛江
+                    </p>
+                </div>
+                <button class="detail-button" onclick="openDetail('疍家•天成台', '日照西湾升晚炊，渔灯阑珊伴浪回。<br>稚子江头弄潮罢，又争谁家秋鱼肥。', '暂无')">查看详情</button>
+            </div>
+        </div>
+
+        <div class="shi">
+            <div class="number">七、</div>
+            <div>
+                <div class="poem-content">
+                    <h2>登梧桐山</h2>
+                    <p>
+                        数越梧桐偕日微，将出玉宇把身随。<br>
+                        虽无古木深山处，也效丹朱拣羽归。<br><br>
+                        癸卯年秋·深圳
+                    </p>
+                </div>
+                <button class="detail-button" onclick="openDetail('登梧桐山', '数越梧桐偕日微，将出玉宇把身随。<br>虽无古木深山处，也效丹朱拣羽归。', '暂无')">查看详情</button>
+            </div>
+        </div>
+
+        <div class="shi">
+            <div class="number">八、</div>
+            <div>
+                <div class="poem-content">
+                    <h2>除夕夜偶醒呓</h2>
+                    <p>
+                        欲采月华独登楼，灯楼独照影空悠。
+                        半轮明月一壶酒，几时曾覆女墙头？<br>
+                        三千越甲灭吴后，江上离人独作舟。
+                        梨园何处弹箜篌？婉转入微忽而骤。<br>
+                        疑是故人相聚否，辗转惟余竹马头。
+                        谅此境地古来有，何须锁眉何须愁？<br>
+                        凭君意气钟灵秀，莫叹何时觅封候。
+                        池中金鳞岂可留？功将成时自然就。<br><br>
+                        壬寅年冬·湛江
+                    </p>
+                </div>
+                <button class="detail-button" onclick="openDetail('除夕夜偶醒呓', '欲采月华独登楼，灯楼独照影空悠。半轮明月一壶酒，几时曾覆女墙头？<br>三千越甲灭吴后，江上离人独作舟。梨园何处弹箜篌？婉转入微忽而骤。<br>疑是故人相聚否，辗转惟余竹马头。谅此境地古来有，何须锁眉何须愁？<br>凭君意气钟灵秀，莫叹何时觅封候。池中金鳞岂可留？功将成时自然就。', '暂无')">查看详情</button>
+            </div>
+        </div>
+
+        <button class="back-button" onclick="window.location.href='index.html'">返回主界面</button>
+    </div>
+</body>
+</html>

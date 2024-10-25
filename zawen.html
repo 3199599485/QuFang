@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>杂文作品模块</title>
+    <style>
+        body {
+            font-family: 'SimSun', 'Songti SC', serif;
+            background-color: #eae0b2; /* 背景颜色 */
+            color: #4b3c28;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #f0e6d2; /* 内容框的背景颜色调整为淡黄色 */
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            font-family: 'KaiTi', 'SimSun', 'Songti SC', serif; /* 设置为楷体字 */
+        }
+
+        .shi {
+            margin: 20px 0;
+            border-bottom: 1px dashed #d8b579;
+            padding-bottom: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .number {
+            margin-right: 15px;
+            font-size: 1.2em;
+            color: #8B0000;
+        }
+
+        .essay-content {
+            background-color: #fff; /* 杂文内容的背景颜色为白色 */
+            padding: 15px;
+            border: 1px solid #8B0000; /* 边框颜色 */
+            border-radius: 5px;
+            margin-bottom: 10px;
+            font-family: 'KaiTi', 'SimSun', 'Songti SC', serif; /* 设置杂文内容为楷体字 */
+            font-size: 1.2em;
+        }
+
+        .back-button, .detail-button {
+            margin-top: 10px; /* 缩小了按钮和文本之间的间距 */
+            padding: 6px 10px; /* 缩小按钮的内边距 */
+            border: 1px solid #8B0000;
+            background-color: #fff;
+            color: #8B0000;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 0.8em; /* 调整按钮字体大小 */
+        }
+
+            .back-button:hover, .detail-button:hover {
+                background-color: #8B0000;
+                color: #fff;
+            }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+    <script>
+        function openDetail(essayTitle, essayContent, thoughts) {
+            const detailWindow = window.open("", "DetailWindow", "width=600,height=400");
+            detailWindow.document.write(`
+                    <html lang="zh">
+                    <head>
+                        <meta charset="UTF-8">
+                        <title>${essayTitle}</title>
+                        <style>
+                            body {
+                                font-family: 'SimSun', 'Songti SC', serif;
+                                background-color: #f0e6d2; /* 窗口背景颜色 */
+                                color: #4b3c28;
+                                margin: 0;
+                                padding: 20px;
+                            }
+                            .content {
+                                display: flex;
+                                flex-direction: column;
+                            }
+                            .essay {
+                                margin-bottom: 20px;
+                                border-bottom: 1px solid #8B0000;
+                                padding-bottom: 10px;
+                                font-family: 'KaiTi', 'SimSun', 'Songti SC', serif; /* 设置杂文内容为楷体字 */
+                                font-size: 1.2em;
+                            }
+                            .thought {
+                                border: 1px solid #8B0000;
+                                padding: 10px;
+                                background-color: #eae0b2; /* 暗黄色背景 */
+                            }
+                            .back-button {
+                                margin-top: 20px;
+                                padding: 6px 10px; /* 缩小按钮的内边距 */
+                                border: 1px solid #8B0000;
+                                background-color: #fff;
+                                color: #8B0000;
+                                border-radius: 5px;
+                                cursor: pointer;
+                                transition: background-color 0.3s;
+                                font-size: 0.8em; /* 调整按钮字体大小 */
+                            }
+                            .back-button:hover {
+                                background-color: #8B0000;
+                                color: #fff;
+                            }
+                        </style>
+                    </head>
+                    <body>
+                        <div class="content">
+                            <div class="essay">
+                                <h2>${essayTitle}</h2>
+                                <p>${essayContent}</p >
+                            </div>
+                            <div class="thought">
+                                <h3>杂记</h3>
+                                <p>${thoughts || '暂无杂记'}</p >
+                            </div>
+                            <button class="back-button" onclick="window.close()">返回</button>
+                        </div>
+                    </body>
+                    </html>
+                `);
+            detailWindow.document.close();
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>杂文<br>结构混乱的胡思乱想</h1>
+
+        <div class="shi">
+            <div class="number">一、</div>
+            <div>
+                <div class="essay-content">
+                    <h2>待上传</h2>
+                    <p>
+                        待上传
+                    </p>
+                </div>
+                <button class="detail-button" onclick="openDetail('待上传', '待上传', '暂无')">查看详情</button>
+            </div>
+        </div>
+
+        <button class="back-button" onclick="window.location.href='index.html'">返回主界面</button>
+    </div>
+</body>
+</html>
